@@ -1,9 +1,9 @@
 # vue-imageview
 A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
 
-## 1、Usage with React
+## 1、Usage with Vue2.0
 
-npm install vue-imageview --save
+`npm install vue-imageview --save`
 
 ## 2、Using as your need
 
