@@ -1,0 +1,25 @@
+{
+  "name": "vue-imageview",
+  "version": "1.0.0",
+  "description": "A Imageview component for Vue2.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naihe138/vue-imageview.git"
+  },
+  "keywords": [
+    "vue2.0",
+    "imageView",
+    "webpack",
+    "component"
+  ],
+  "author": "naice",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naihe138/vue-imageview/issues"
+  },
+  "homepage": "https://github.com/naihe138/vue-imageview#readme"
+}
