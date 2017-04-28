@@ -14,10 +14,10 @@ A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
 	<div class="hello">
 		<transition name="slide-fade" class="fadeView">
 			<div v-if="show">
-				<image-view :imgArr="imgArr"
-										:showImageView="true"
-										v-on:hideImage="hideImageView"
-										:imageIndex="imageIndex"></image-view>
+				<image-view :imgArr="imgArr" 
+				            :showImageView="true"
+				            :imageIndex="imageIndex"
+				            v-on:hideImage="hideImageView"></image-view>
 			</div>
 		</transition>
 		<h1 @click="showImgView">显示隐藏</h1>
@@ -26,7 +26,7 @@ A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
 </template>
 
 <script>
-  import imageView from './imageView.vue'
+  import imageView from 'vue-imageview'
   export default {
     name: 'hello',
     components: {
@@ -108,5 +108,11 @@ A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
         <td>number</td>
         <td>The start of images to view</td>
         <td>No</td>
+    </tr>
+    <tr>
+        <td>hideImage</td>
+        <td>function</td>
+        <td>The callback function of images to close</td>
+        <td>Yes</td>
     </tr>
 </table>

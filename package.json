@@ -1,6 +1,6 @@
 {
   "name": "vue-imageview",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A Imageview component for Vue2.0",
   "main": "index.js",
   "scripts": {
