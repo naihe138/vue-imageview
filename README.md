@@ -1,7 +1,7 @@
 # vue-imageview
 A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
 
-<h3>[demo](http://naice.me/vue-imageview/example/demo3/index.html#/)<h3>
+<h3><a href="http://gitblog.naice.me/vue-imageview/example/demo3/index.html#/">demo</a><h3>
 
 ## 1、Usage with Vue2.0
 
