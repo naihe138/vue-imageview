@@ -9,7 +9,8 @@
 		<div>
 			<ul class="imageBox"
 					v-bind:style="ulStyleObj">
-				<li v-for="item in imgArr"
+				<li v-for="(item, index) in imgArr"
+            :key="index"
 						v-bind:style="{ width: viewWith + 'px'}">
 					<img :src="item" alt="123">
 				</li>
@@ -93,6 +94,7 @@
           return false
         })
         this.imageView.addEventListener(self.pEvent.TOUCHMOVE, (e) => {
+          e.preventDefault()
           if (!self.flag) {
             return
           }
