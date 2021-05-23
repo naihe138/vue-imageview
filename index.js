@@ -1,1 +1,1 @@
-module.exports=require('./lib/vue-imageview.vue')
+module.exports=require('./lib/vue-imageview.js')
