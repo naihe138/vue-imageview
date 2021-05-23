@@ -24,7 +24,7 @@ A Imageview component for Vue2.0
       <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164642.jpeg" alt="">
       <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164643.jpeg" alt="">
     </div>
-    <ImagesView :visible.sync="show" :images="srcArr" :src="imgSrc" :info="info" />
+    <ImagesView :visible.sync="show" :images="srcArr" :src="imgSrc" />
   </div>
 </template>
 
@@ -45,25 +45,7 @@ export default {
   methods: {
     async getData(imgBox) {
       const imgs = imgBox.querySelectorAll('img');
-      let arr = []
-      for (let i = 0; i < imgs.length; i++) {
-        const obj = await this.loadImag(imgs[i]);
-        console.log(obj)
-        arr.push(obj)
-      }
-      this.srcArr = arr
-    },
-    loadImag(el) {
-      return new Promise((resolved, reject) => {
-        el.onload = function() {
-          resolved({
-            src: el.src,
-            width: el.width,
-            height: el.height
-          })
-        };
-        el.onerror = reject;
-      })
+      this.srcArr = Array.from(imgs).map((el) => el.src);
     }
   },
   mounted () {
@@ -72,13 +54,7 @@ export default {
     imgBox.addEventListener('click', (e) => {
       if(e.target.nodeName == 'IMG') {
         this.imgSrc = e.target.src;
-        this.info = {
-          x: e.clientX,
-          y: e.clientY,
-          width: e.target.width,
-          height: e.target.height,
-        }
-        this.show = true;
+        this.show = true
       }
     })
   }
@@ -91,6 +67,5 @@ export default {
 Attribute | Description | require | Type | Default
 ---- | --- | --- | --- | ---
 visible | show/hide picker | yes | Boolean | false
-images | images data for components [data1, data2]  | yes | Array | []
+images | images data for components [src1, src2]  | yes | Array | []
 src | show current images link  | yes | String | ''
-info | current image info  | yes | {} | {}
