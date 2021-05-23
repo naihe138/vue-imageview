@@ -1,10 +1,12 @@
 {
   "name": "vue-imageview",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "A Imageview component for Vue2.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rollup": "rollup -c ./rollup.config.js",
+    "build": "webpack",
+    "dev": "webpack --config ./webpack.config-dev.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,23 @@
   "bugs": {
     "url": "https://github.com/naihe138/vue-imageview/issues"
   },
-  "homepage": "https://github.com/naihe138/vue-imageview#readme"
+  "homepage": "https://github.com/naihe138/vue-imageview#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "precss": "^4.0.0",
+    "rollup": "^1.26.0",
+    "rollup-plugin-vue": "^5.1.2",
+    "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "vue-loader": "^15.7.1",
+    "vue-runtime-helpers": "^1.1.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+  }
 }

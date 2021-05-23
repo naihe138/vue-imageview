@@ -7,6 +7,26 @@ A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
 
 `npm install vue-imageview --save`
 
+
+
+"@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "precss": "^4.0.0",
+    "rollup": "^1.26.0",
+    "rollup-plugin-vue": "^5.1.2",
+    "sass-loader": "^8.0.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "vue-loader": "^15.7.1",
+    "vue-runtime-helpers": "^1.1.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9"
+npm install @babel/preset-env autoprefixer babel-loader css-loader precss rollup rollup-plugin-vue sass-loader terser-webpack-plugin vue-loader vue-runtime-helpers vue-style-loader vue-template-compiler webpack webpack-cli -D
+
 ## 2、Using as your need
 
 ````
