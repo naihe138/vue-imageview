@@ -1,138 +1,96 @@
 # vue-imageview
-A Imageview component for Vue2.0 ---------vue 的H5图片查看器组件
+A Imageview component for Vue2.0
 
-<h3><a href="http://gitblog.naice.me/vue-imageview/example/demo3/index.html#/">demo</a><h3>
+<h3><a href="https://naihe138.github.io/vue-imageview/index.html#/">Click Demo</a><h3>
 
+
+## demo preview
+
+![vue-pick.gif](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif)
 ## 1、Usage with Vue2.0
 
 `npm install vue-imageview --save`
 
-
-
-"@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "autoprefixer": "^9.7.0",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.2.0",
-    "precss": "^4.0.0",
-    "rollup": "^1.26.0",
-    "rollup-plugin-vue": "^5.1.2",
-    "sass-loader": "^8.0.0",
-    "terser-webpack-plugin": "^2.2.1",
-    "vue-loader": "^15.7.1",
-    "vue-runtime-helpers": "^1.1.2",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
-npm install @babel/preset-env autoprefixer babel-loader css-loader precss rollup rollup-plugin-vue sass-loader terser-webpack-plugin vue-loader vue-runtime-helpers vue-style-loader vue-template-compiler webpack webpack-cli -D
-
 ## 2、Using as your need
 
-````
+````html
 <template>
-	<div class="hello">
-		<transition name="slide-fade" class="fadeView">
-			<div v-if="show">
-				<image-view :imgArr="imgArr" 
-				            :showImageView="true"
-				            :imageIndex="imageIndex"
-				            v-on:hideImage="hideImageView"></image-view>
-			</div>
-		</transition>
-		<h1 @click="showImgView">显示隐藏</h1>
-		<img v-for="(item, index) in imgArr" :src="item" @click="selectImg(index)">
-	</div>
+  <div>
+    <div id="imgBox">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164644.jpg" alt="">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164639.webp" alt="">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164640.jpeg" alt="">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164641.jpeg" alt="">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164642.jpeg" alt="">
+      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164643.jpeg" alt="">
+    </div>
+    <ImagesView :visible.sync="show" :images="srcArr" :src="imgSrc" :info="info" />
+  </div>
 </template>
 
 <script>
-  import imageView from 'vue-imageview'
-  export default {
-    name: 'hello',
-    components: {
-      'image-view': imageView
-    },
-    data () {
-      return {
-        // 图片数组
-        imgArr: ['/public/img/1.jpeg', '/public/img/2.jpeg', '/public/img/2.jpeg', '/public/img/3.jpeg', '/public/img/4.jpeg', '/public/img/5.jpeg', '/public/img/6.jpeg'],
-        // 显示组件
-        show: false,
-        // 从哪一张图片开始
-        imageIndex: 0
-      }
-    },
-    methods: {
-      showImgView () {
-        this.show = true
-      },
-      hideImageView () {
-        this.show = false
-      },
-      selectImg (index) {
-        this.show = true
-        this.imageIndex = index
-      }
+import ImagesView from 'vue-imageview'
+export default {
+  components: {
+    ImagesView
+  },
+  data() {
+    return {
+      show: false,
+      imgSrc: '',
+      srcArr: [],
+      info: {}
     }
+  },
+  methods: {
+    async getData(imgBox) {
+      const imgs = imgBox.querySelectorAll('img');
+      let arr = []
+      for (let i = 0; i < imgs.length; i++) {
+        const obj = await this.loadImag(imgs[i]);
+        console.log(obj)
+        arr.push(obj)
+      }
+      this.srcArr = arr
+    },
+    loadImag(el) {
+      return new Promise((resolved, reject) => {
+        el.onload = function() {
+          resolved({
+            src: el.src,
+            width: el.width,
+            height: el.height
+          })
+        };
+        el.onerror = reject;
+      })
+    }
+  },
+  mounted () {
+    const imgBox = document.querySelector('#imgBox');
+    this.getData(imgBox);
+    imgBox.addEventListener('click', (e) => {
+      if(e.target.nodeName == 'IMG') {
+        this.imgSrc = e.target.src;
+        this.info = {
+          x: e.clientX,
+          y: e.clientY,
+          width: e.target.width,
+          height: e.target.height,
+        }
+        this.show = true;
+      }
+    })
   }
+}
 </script>
-
-<style scoped>
-	.slide-fade-enter-active {
-		transition: opacity .5s ease;
-	}
-
-	.slide-fade-leave-active {
-		transition: opacity .5s ease;
-	}
-
-	.slide-fade-enter, .slide-fade-leave-active {
-		opacity: 0;
-	}
-	h1, h2 {
-		margin: 0;
-		padding: 0;
-	}
-	img {
-		display: block;
-		margin: 10px auto;
-		max-width: 400px;
-	}
-</style>
-
 ````
 
-### 3、Configuration
+## Attributes
 
-<table>
-    <tr>
-        <th>Param</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Required</th>
-    </tr>
-    <tr>
-        <td>imgArr</td>
-        <td>array</td>
-        <td>The list of images to view</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td>show</td>
-        <td>blooean</td>
-        <td>The flag of images to view</td>
-        <td>Yes</td>
-    </tr>
-    <tr>
-        <td>imageIndex</td>
-        <td>number</td>
-        <td>The start of images to view</td>
-        <td>No</td>
-    </tr>
-    <tr>
-        <td>hideImage</td>
-        <td>function</td>
-        <td>The callback function of images to close</td>
-        <td>Yes</td>
-    </tr>
-</table>
+Attribute | Description | require | Type | Default
+---- | --- | --- | --- | ---
+visible | show/hide picker | yes | Boolean | false
+images | images data for components [data1, data2]  | yes | Array | []
+src | show current images link  | yes | String | ''
+info | current image info  | yes | {} | {}
