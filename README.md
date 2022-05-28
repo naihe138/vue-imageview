@@ -7,9 +7,8 @@ A preview images component for Vue3
 ## demo preview
 
 <!-- ![vue-pick](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif) -->
-![](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif)
 
-<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="40" height="40" />
+<img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif" />
 
 
 ## 1、Usage with Vue3
