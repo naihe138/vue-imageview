@@ -1,16 +1,26 @@
 {
-  "name": "my-lib6",
-  "version": "0.3.4",
+  "name": "vue-imageview",
+  "version": "3.1.1",
+  "description": "A image view component for Vue2.0",
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/image-view.umd.js",
+  "module": "./dist/image-view.es.js",
   "publishConfig": {
-    "access": "public",
-    "registry": "http://localhost:4873/"
+    "access": "public"
   },
-  "author": "test",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naihe138/vue-imageview.git"
+  },
+  "homepage": "https://github.com/naihe138/vue-imageview#readme",
+  "keywords": [
+    "vue3",
+    "imageView",
+    "preview images"
+  ],
+  "author": "naice",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",

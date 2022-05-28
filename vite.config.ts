@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/components/index.ts'),
-      name: 'MyLib',
-      fileName: (format) => `my-lib.${format}.js`,
+      name: 'image-view',
+      fileName: (format) => `image-view.${format}.js`,
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖

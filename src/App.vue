@@ -15,7 +15,7 @@
   import ImagesView from './components/index';
   import { ref, onMounted } from 'vue'
   const show = ref(false)
-  const srcArr = ref([])
+  const srcArr = ref<string[]>([])
   const imgSrc = ref('');
   const getData = (imgBox: HTMLDivElement) => {
     const imgs = imgBox.querySelectorAll('img');
@@ -23,7 +23,7 @@
   }
 
   onMounted(() => {
-    const imgBox: HTMLDivElement = document.querySelector('#imgBox');
+    const imgBox = document.querySelector('#imgBox') as HTMLDivElement;
     getData(imgBox);
     imgBox.addEventListener('click', (e: any) => {
       if(e.target.nodeName == 'IMG') {

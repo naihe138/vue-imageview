@@ -42,7 +42,7 @@
   </Teleport>
 </template>
 <script lang="ts" setup>
-  import { defineProps, reactive, nextTick, ref, watch } from 'vue'
+  import { defineProps, reactive, nextTick, ref, watch, Ref } from 'vue'
   type TProps = {
     images: string[],
     src: string,
@@ -50,7 +50,7 @@
   };
   const props = defineProps<TProps>();
   const emit = defineEmits(['update:visible']);
-  const preview = ref<HTMLDivElement>()
+  const preview = ref<HTMLDivElement>() as Ref<HTMLDivElement>
   const state = reactive({
     currenImage: '',
     containerStyle: {
@@ -135,7 +135,7 @@
   let startY = 0;
   let boxLeft = 0;
   let boxTop = 0;
-  let boxRight = 0;
+  // let boxRight = 0;
   const dragImage = (e) => {
     const { width, height } = state.imagesArr[state.showIndex];
     const previewBounds = preview.value.getBoundingClientRect();
@@ -148,7 +148,7 @@
       startY = e.clientY;
       boxLeft = ((overWidth / 2) + 30) / state.imgStyle.scale;
       boxTop = ((overHeight / 2) + 30) / state.imgStyle.scale;
-      boxRight = ((overHeight / 2) + 30) / state.imgStyle.scale;
+      // boxRight = ((overHeight / 2) + 30) / state.imgStyle.scale;
       document.addEventListener('mousemove', imageMove);
       document.addEventListener('mouseup', imageUp)
     }
@@ -241,14 +241,14 @@
 
   watch(() => props.visible, (v) => {
     if (v) {
-      state.showIndex = state.imagesArr.findIndex(item => item.src === props.src);
+      state.showIndex = state.imagesArr.findIndex((item: any) => item.src === props.src);
       nextTick(() => {
         change(state.imagesArr[state.showIndex]);
       })
     }
   })
   watch(() => props.images, async () => {
-    let arr = [];
+    let arr: any = [];
     for (let i = 0; i < props.images.length; i++) {
       try {
         const obj = await loadImage(props.images[i]);
