@@ -1,71 +1,16 @@
-# vue-imageview
-A Imageview component for Vue2.0
+# Vue 3 + TypeScript + Vite
 
-<h3><a href="https://naihe138.github.io/vue-imageview/index.html#/">Click Demo</a><h3>
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
+## Recommended IDE Setup
 
-## demo preview
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 
-![vue-pick.gif](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif)
-## 1、Usage with Vue2.0
+## Type Support For `.vue` Imports in TS
 
-`npm install vue-imageview --save`
+Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-## 2、Using as your need
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
-````html
-<template>
-  <div>
-    <div id="imgBox">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164644.jpg" alt="">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164639.webp" alt="">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164640.jpeg" alt="">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164641.jpeg" alt="">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164642.jpeg" alt="">
-      <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164643.jpeg" alt="">
-    </div>
-    <ImagesView :visible.sync="show" :images="srcArr" :src="imgSrc" />
-  </div>
-</template>
-
-<script>
-import ImagesView from 'vue-imageview'
-export default {
-  components: {
-    ImagesView
-  },
-  data() {
-    return {
-      show: false,
-      imgSrc: '',
-      srcArr: [],
-      info: {}
-    }
-  },
-  methods: {
-    async getData(imgBox) {
-      const imgs = imgBox.querySelectorAll('img');
-      this.srcArr = Array.from(imgs).map((el) => el.src);
-    }
-  },
-  mounted () {
-    const imgBox = document.querySelector('#imgBox');
-    this.getData(imgBox);
-    imgBox.addEventListener('click', (e) => {
-      if(e.target.nodeName == 'IMG') {
-        this.imgSrc = e.target.src;
-        this.show = true
-      }
-    })
-  }
-}
-</script>
-````
-
-## Attributes
-
-Attribute | Description | require | Type | Default
----- | --- | --- | --- | ---
-visible | show/hide picker | yes | Boolean | false
-images | images data for components [src1, src2]  | yes | Array | []
-src | show current images link  | yes | String | ''
+You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
