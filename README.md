@@ -6,7 +6,9 @@ A preview images component for Vue3
 
 ## demo preview
 
-![vue-pick.gif](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif)
+<!-- ![vue-pick](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif) -->
+![](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164641.jpeg)
+
 ## 1、Usage with Vue3
 
 `npm install vue-imageview --save`
