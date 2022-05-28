@@ -5,15 +5,10 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/image-view.umd.js",
-  "module": "./dist/image-view.es.js",
-  "types": "./dist/image-view.umd.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/image-view.es.js",
-      "require": "./dist/image-view.umd.js"
-    }
-  },
+  "main": "dist/image-view.umd.js",
+  "module": "dist/image-view.es.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/naihe138/vue-imageview.git"
