@@ -7,9 +7,6 @@
   ],
   "main": "./dist/image-view.umd.js",
   "module": "./dist/image-view.es.js",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/naihe138/vue-imageview.git"
