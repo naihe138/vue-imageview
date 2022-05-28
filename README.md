@@ -1,13 +1,7 @@
 # vue preview image
 A preview images component for Vue3
 
-<h3><a href="https://naihe138.github.io/vue-imageview/index.html#/">Click Demo</a><h3>
-
-
-## demo preview
-
-<!-- ![vue-pick](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif) -->
-![](https://img.store.naice.me/20210523171808.gif)
+<h3><a href="https://naihe138.github.io/vue-imageview/index.html#/">See The Demo</a><h3>
 
 
 ## 1、Usage with Vue3
