@@ -7,7 +7,7 @@
   ],
   "main": "./dist/image-view.umd.js",
   "module": "./dist/image-view.es.js",
-  "types": "./dist/image-view.d.ts",
+  "types": "./dist/image-view.umd.d.ts",
   "exports": {
     ".": {
       "import": "./dist/image-view.es.js",
