@@ -1,4 +1,5 @@
 <template>
+  <h1>点击图片进行预览</h1>
   <div id="imgBox">
     <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164644.jpg" alt="">
     <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164639.webp" alt="">
@@ -7,11 +8,30 @@
     <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164642.jpeg" alt="">
     <img src="https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523164643.jpeg" alt="">
   </div>
-  <PreviewImages msg="Component Vue 3 + TypeScript + Vite" />
+  <ImagesView v-model:visible="show" :images="srcArr" :src="imgSrc" />
 </template>
 
 <script setup lang="ts">
-  import PreviewImages from './components/index';
+  import ImagesView from './components/index';
+  import { ref, onMounted } from 'vue'
+  const show = ref(false)
+  const srcArr = ref([])
+  const imgSrc = ref('');
+  const getData = (imgBox: HTMLDivElement) => {
+    const imgs = imgBox.querySelectorAll('img');
+    srcArr.value = Array.from(imgs).map((el) => el.src);
+  }
+
+  onMounted(() => {
+    const imgBox: HTMLDivElement = document.querySelector('#imgBox');
+    getData(imgBox);
+    imgBox.addEventListener('click', (e: any) => {
+      if(e.target.nodeName == 'IMG') {
+        imgSrc.value = e.target.src;
+        show.value = true
+      }
+    })
+  });
 </script>
 
 <style>

@@ -46,9 +46,7 @@
   type TProps = {
     images: string[],
     src: string,
-    info: Record<string, any>,
-    visible: boolean,
-    size: Record<string, any>,
+    visible: boolean
   };
   const props = defineProps<TProps>();
   const emit = defineEmits(['update:visible']);

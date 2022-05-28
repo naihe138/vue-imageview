@@ -1,2 +1,2 @@
-import PreviewImages from './preview-images.vue';
-export default PreviewImages;
+import ImagesView from './preview-images.vue';
+export default ImagesView;
