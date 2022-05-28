@@ -7,7 +7,7 @@ A preview images component for Vue3
 ## demo preview
 
 <!-- ![vue-pick](https://cdn.jsdelivr.net/gh/naihe138/myimages/img/20210523171808.gif) -->
-![](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![](https://img.store.naice.me/20210523171808.gif)
 
 
 ## 1、Usage with Vue3
